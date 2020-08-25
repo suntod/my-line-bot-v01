@@ -28,17 +28,14 @@ def webhook():
         abort(400)
 
     return 'OK'
-
-@app.route("/webhook", methods=['GET', 'POST'])
-def webhook():
-    if request.method == 'POST':
-        return 'OK'
+    
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
+
 
 if __name__ == "__main__":
     app.run()
