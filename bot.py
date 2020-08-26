@@ -29,6 +29,10 @@ def webhook():
 
     return 'OK'
     
+@app.route("/webhook", methods=['GET', 'POST'])
+def webhook():
+    if request.method == 'POST':
+        return 'OK'
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
