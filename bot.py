@@ -12,8 +12,8 @@ handler = WebhookHandler('55ccde8729536a6df0e0dfca954ef261')
 def hello():
     return "Hello World!"
 
-@app.route("/webhook2", methods=['POST'])
-def webhook2():
+@app.route("/webhook", methods=['POST'])
+def webhook():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
@@ -29,8 +29,8 @@ def webhook2():
 
     return 'OK'
     
-@app.route("/webhook", methods=['GET', 'POST'])
-def webhook():
+@app.route("/webhook2", methods=['GET', 'POST'])
+def webhook2():
     if request.method == 'POST':
         return 'OK'
 
